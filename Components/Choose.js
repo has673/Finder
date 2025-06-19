@@ -1,0 +1,49 @@
+"use client";
+
+import React from "react";
+import { Users, MapPin, ShieldCheck } from "lucide-react"; // Lucide icons
+
+const Choose = () => {
+  const features = [
+    {
+      icon: <Users className="w-10 h-10 text-[#429AFF]" />,
+      title: "Real Connections",
+      description: "Meet like-minded people nearby or worldwide.",
+    },
+    {
+      icon: <MapPin className="w-10 h-10 text-[#429AFF]" />,
+      title: "Discover Nearby",
+      description: "Find people, events, and vibes around you.",
+    },
+    {
+      icon: <ShieldCheck className="w-10 h-10 text-[#429AFF]" />,
+      title: "Safe & Respectful",
+      description: "Your privacy and comfort are always a priority.",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 py-10 px-4 sm:px-8 md:px-12 lg:flex-row">
+      {features.map((item, idx) => (
+        <div
+          key={idx}
+          style={{
+            background: "linear-gradient(180deg, #F2FAFF 0%, #DFF2FF 100%)",
+            boxShadow: "0px 13px 11.4px -8px #0077CC33",
+          }}
+          className="w-full max-w-[325px] rounded-xl flex flex-col items-center text-center p-6"
+        >
+          <div className="mb-4">{item.icon}</div>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#429AFF] mb-2">
+            {item.title}
+          </h3>
+          <p className="text-sm sm:text-base text-[#351C45]">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Choose;
