@@ -13,17 +13,15 @@ export default function Home() {
       <div id="about">
         <CampSection />
         <div>
-          {/*
           <h1 className="text-[#429AFF] text-3xl lg:text-[54px] font-bold ml-4 lg:ml-14 mt-12">
             Why Choose Our App?
           </h1>
-           <p className=" text-[black] text-lg sm:text-xl md:text-2xl lg:text-[28px] font-normal ml-4 sm:ml-8 md:ml-14 ">
+          <p className=" text-[black] text-lg sm:text-xl md:text-2xl lg:text-[28px] font-normal ml-4 sm:ml-8 md:ml-14 ">
             Built Around Your Needs, Every Step of the Way
           </p>{" "}
-          */}
         </div>
 
-        {/* <Choose /> */}
+        <Choose />
         <Features />
         <Testimonials />
       </div>

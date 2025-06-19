@@ -1,24 +1,24 @@
 "use client";
 
 import React from "react";
-import { Users, MapPin, ShieldCheck } from "lucide-react"; // Lucide icons
+import { RefreshCcw, Coins, Briefcase } from "lucide-react";
 
 const Choose = () => {
   const features = [
     {
-      icon: <Users className="w-10 h-10 text-[#429AFF]" />,
-      title: "Real Connections",
-      description: "Meet like-minded people nearby or worldwide.",
+      icon: <RefreshCcw className="w-10 h-10 text-[#429AFF]" />,
+      title: "Dual Profiles",
+      description: "Switch between personal and business accounts in one tap.",
     },
     {
-      icon: <MapPin className="w-10 h-10 text-[#429AFF]" />,
-      title: "Discover Nearby",
-      description: "Find people, events, and vibes around you.",
+      icon: <Coins className="w-10 h-10 text-[#429AFF]" />,
+      title: "Earn Rewards",
+      description: "Collect tokens and unlock premium features effortlessly.",
     },
     {
-      icon: <ShieldCheck className="w-10 h-10 text-[#429AFF]" />,
-      title: "Safe & Respectful",
-      description: "Your privacy and comfort are always a priority.",
+      icon: <Briefcase className="w-10 h-10 text-[#429AFF]" />,
+      title: "Business Ready",
+      description: "Promote, analyze, and grow with built-in business tools.",
     },
   ];
 
