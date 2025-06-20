@@ -1,6 +1,7 @@
 import CampSection from "../../Components/CampSection";
 import Choose from "../../Components/Choose";
 import ContactForm from "../../Components/ContacForm";
+import CookieBanner from "../../Components/CookierBanner";
 import Features from "../../Components/Features";
 import Main from "../../Components/Main";
 import Testimonials from "../../Components/Testimonials";
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <div className="bg-[#f0faff]">
       <Main />
-
+      <CookieBanner />
       <div id="about">
         <CampSection />
         <div>
