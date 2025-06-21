@@ -12,12 +12,12 @@ import {
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const iconList = [
-  <Users className="w-8 h-8 text-[#429AFF]" />,
-  <MapPin className="w-8 h-8 text-[#429AFF]" />,
-  <MessageCircle className="w-8 h-8 text-[#429AFF]" />,
-  <ShieldCheck className="w-8 h-8 text-[#429AFF]" />,
-  <Newspaper className="w-8 h-8 text-[#429AFF]" />,
-  <UserCircle className="w-8 h-8 text-[#429AFF]" />,
+  <Users key="icon-users" className="w-8 h-8 text-[#429AFF]" />,
+  <MapPin key="icon-map" className="w-8 h-8 text-[#429AFF]" />,
+  <MessageCircle key="icon-msg" className="w-8 h-8 text-[#429AFF]" />,
+  <ShieldCheck key="icon-shield" className="w-8 h-8 text-[#429AFF]" />,
+  <Newspaper key="icon-news" className="w-8 h-8 text-[#429AFF]" />,
+  <UserCircle key="icon-profile" className="w-8 h-8 text-[#429AFF]" />,
 ];
 
 const CampSection = () => {

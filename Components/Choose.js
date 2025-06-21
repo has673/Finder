@@ -5,9 +5,9 @@ import { RefreshCcw, Coins, Briefcase } from "lucide-react";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const icons = [
-  <RefreshCcw className="w-10 h-10 text-[#429AFF]" />,
-  <Coins className="w-10 h-10 text-[#429AFF]" />,
-  <Briefcase className="w-10 h-10 text-[#429AFF]" />,
+  <RefreshCcw key="refresh" className="w-10 h-10 text-[#429AFF]" />,
+  <Coins key="coin" className="w-10 h-10 text-[#429AFF]" />,
+  <Briefcase key="case" className="w-10 h-10 text-[#429AFF]" />,
 ];
 
 const Choose = () => {

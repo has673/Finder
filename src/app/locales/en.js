@@ -1,4 +1,4 @@
-export default {
+const en = {
   home: "Home",
   about: "About",
   contact: "Contact",
@@ -108,3 +108,4 @@ export default {
     copyright: "© 2025 Finder. All rights reserved.",
   },
 };
+export default en;
