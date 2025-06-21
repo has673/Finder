@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import StoreButtons from "./StoreButtons";
+import LanguageSwitcher from "./languageSwitcher";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
-
+  const { t } = useLanguage();
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["top", "about", "contact"];
@@ -60,8 +62,29 @@ const Header = () => {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden relative z-20"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden relative z-20 ripple rounded-full p-2 transition-all duration-200 ease-in-out"
+        onClick={(e) => {
+          const target = e.currentTarget;
+          const circle = document.createElement("span");
+
+          const diameter = Math.max(target.clientWidth, target.clientHeight);
+          const radius = diameter / 2;
+
+          circle.style.width = circle.style.height = `${diameter}px`;
+          circle.style.left = `${
+            e.clientX - target.getBoundingClientRect().left - radius
+          }px`;
+          circle.style.top = `${
+            e.clientY - target.getBoundingClientRect().top - radius
+          }px`;
+          circle.classList.add("ripple");
+
+          const ripple = target.getElementsByClassName("ripple")[0];
+          if (ripple) ripple.remove();
+
+          target.appendChild(circle);
+          setMobileMenuOpen(!mobileMenuOpen);
+        }}
         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
       >
         {mobileMenuOpen ? (
@@ -82,7 +105,7 @@ const Header = () => {
             }`}
             onClick={() => scrollToSection("top")}
           >
-            Home
+            {t.home}
           </button>
           <button
             className={`px-6 py-2 rounded-full text-sm font-semibold ${
@@ -92,7 +115,7 @@ const Header = () => {
             }`}
             onClick={() => scrollToSection("about")}
           >
-            About
+            {t.about}
           </button>
           <button
             className={`px-6 py-2 rounded-full text-sm font-semibold ${
@@ -102,8 +125,12 @@ const Header = () => {
             }`}
             onClick={() => scrollToSection("contact")}
           >
-            Contact
+            {t.contact}
           </button>
+          <button>
+            <LanguageSwitcher />
+          </button>
+
           <div className="mt-6">
             <StoreButtons />
           </div>
@@ -118,7 +145,7 @@ const Header = () => {
           }`}
           onClick={() => scrollToSection("top")}
         >
-          Home
+          {t.home}
         </button>
         <button
           className={`px-4 py-1 rounded-full text-sm font-semibold ${
@@ -126,7 +153,7 @@ const Header = () => {
           }`}
           onClick={() => scrollToSection("about")}
         >
-          About
+          {t.about}
         </button>
         <button
           className={`px-4 py-1 rounded-full text-sm font-semibold ${
@@ -136,7 +163,7 @@ const Header = () => {
           }`}
           onClick={() => scrollToSection("contact")}
         >
-          Contact
+          {t.contact}
         </button>
       </nav>
 

@@ -2,36 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Ali R.",
-    feedback:
-      "Switching between my personal and business profiles is so smooth. It feels like two apps in one!",
-  },
-  {
-    name: "Fatima K.",
-    feedback:
-      "I love earning tokens just by checking in and watching quick ads. It makes using the app rewarding!",
-  },
-  {
-    name: "Hassan M.",
-    feedback:
-      "As a business owner, the built-in website link and analytics helped me attract more clients effortlessly.",
-  },
-  {
-    name: "Zara T.",
-    feedback:
-      "The swipe-up and story privacy controls give me full control over who sees my content. Game changer!",
-  },
-  {
-    name: "Bilal A.",
-    feedback:
-      "Finally, an app that respects privacy while still being social. Finder is my go-to daily app.",
-  },
-];
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+  const testimonials = t.testimonials.list;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(1);
 
@@ -61,7 +37,6 @@ const Testimonials = () => {
 
   const visible = testimonials.slice(currentIndex, currentIndex + itemsPerPage);
 
-  // For wrap-around when at the end
   const wrappedVisible =
     visible.length < itemsPerPage
       ? [...visible, ...testimonials.slice(0, itemsPerPage - visible.length)]
@@ -70,10 +45,10 @@ const Testimonials = () => {
   return (
     <div className="bg-[#429AFF] text-white py-8 md:py-12 px-4">
       <div className="text-center mb-6 md:mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold">What Our Users Say</h2>
-        <p className="text-xs md:text-sm mt-2">
-          Real feedback from people growing with Finder
-        </p>
+        <h2 className="text-2xl md:text-3xl font-bold">
+          {t.testimonials.heading}
+        </h2>
+        <p className="text-xs md:text-sm mt-2">{t.testimonials.subheading}</p>
       </div>
 
       <div className="flex justify-center gap-4 md:gap-6 flex-wrap transition-all duration-300">

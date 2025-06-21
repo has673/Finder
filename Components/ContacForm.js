@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage } from "@/app/context/LanguageContext";
 import {
   MapPin,
   Mail,
@@ -7,7 +8,6 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 function ContactInfo({ icon: Icon, title, detail }) {
@@ -27,6 +27,7 @@ function ContactInfo({ icon: Icon, title, detail }) {
 }
 
 function ContactForm() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e) => {
@@ -44,10 +45,10 @@ function ContactForm() {
       id="contact"
     >
       <h2 className="text-4xl md:text-6xl font-bold text-center mb-2 text-[#222222]">
-        Get in touch
+        {t.touch}
       </h2>
       <p className="text-xs md:text-sm text-center text-[#4B5563] font-normal mb-6 md:mb-8">
-        Drop us message to see how we can help you
+        {t.msg}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full max-w-5xl">
@@ -97,15 +98,12 @@ function ContactForm() {
             className="p-3 border  border-black placeholder-black rounded-lg w-full h-32"
             required
           />
-          <p className="text-xs text-gray-600">
-            I consent to my personal data being stored and used in accordance
-            with the privacy policy
-          </p>
+          <p className="text-xs text-gray-600">{t.consent}</p>
           <button
             type="submit"
             className="bg-[#429AFF] text-white py-3 px-6 rounded-lg hover:bg-purple-800 transition w-full"
           >
-            Send Message
+            {t.footer.send}
           </button>
         </form>
       </div>
@@ -115,13 +113,13 @@ function ContactForm() {
           {/* Left: Policy Links */}
           <div className="flex flex-wrap justify-center md:justify-start gap-4 md:space-x-4">
             <a href="#" className="hover:underline">
-              Cookie Policy
+              {t.footer.cookie}
             </a>
             <a href="#" className="hover:underline">
-              Privacy policy
+              {t.footer.privacy}
             </a>
             <a href="#" className="hover:underline">
-              Terms & conditions
+              {t.footer.terms}
             </a>
           </div>
 
@@ -161,7 +159,7 @@ function ContactForm() {
           </div>
         </div>
         <p className="text-center text-xs md:text-sm text-gray-600 mt-6 md:mt-10">
-          © 2025 Finder. All rights reserved.
+          {t.footer.copyright}
         </p>
       </footer>
     </div>

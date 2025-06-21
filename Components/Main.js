@@ -3,9 +3,12 @@
 import Image from "next/image";
 import Header from "./Header";
 import { useMediaQuery } from "@/app/hooks/use-mobile";
+import LanguageSwitcher from "./languageSwitcher";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const Main = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const { t } = useLanguage();
 
   return (
     <div
@@ -16,10 +19,14 @@ const Main = () => {
       id="top"
     >
       <Header />
+      <div className="hidden md:flex items-center justify-center">
+        <LanguageSwitcher />
+      </div>
+
       <div className="flex flex-col md:flex-row md:justify-between px-4 md:px-0 pb-8 md:pb-0">
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left mt-6 md:mt-0">
-          <h1 className="text-[#429AFF] text-3xl md:text-5xl lg:text-[54px] font-bold md:ml-14 max-w-full md:max-w-xl ">
-            Connect. Discover. Belong.
+          <h1 className="fade-in-up text-[#429AFF] text-3xl md:text-5xl lg:text-[54px] font-bold md:ml-14 max-w-full md:max-w-xl ">
+            {t.main}
           </h1>
           <div className="flex flex-col gap-y-0 mt-5 ">
             {" "}
