@@ -11,7 +11,7 @@ const StoreButtons = () => {
         className="flex items-center justify-center p-2"
       >
         <Image
-          src="/icons/applelogo.png"
+          src="/icons/apple.svg"
           alt="Google Play"
           className="w-8 h-8"
           width={10}
@@ -26,7 +26,7 @@ const StoreButtons = () => {
         className="flex items-center justify-center p-2"
       >
         <Image
-          src="/icons/googleypng.png"
+          src="/icons/playstore.svg"
           alt="Apple Store"
           className="w-8 h-8"
           width={10}
