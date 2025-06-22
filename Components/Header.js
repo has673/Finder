@@ -96,7 +96,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-10 flex flex-col items-center justify-center space-y-6 md:hidden">
+        <div className="fixed inset-0 bg-white z-10 flex flex-col items-center justify-center space-y-6 md:hidden transition-all duration-500 ease-in-out animate-fade-in">
           <button
             className={`px-6 py-2 rounded-full text-sm font-semibold ${
               activeSection === "top"
